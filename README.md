@@ -14,9 +14,20 @@ This is avery crude solution to satisfy PCI DSS requirements for monitoring file
 
 ### Required Environment Variables
 
+* Liunx / OS X stanard
+
 ```
 FIM_SPARKPOST_API_KEY
 FIM_NOTIFICATION_TO_EMAIL
 FIM_NOTIFICATION_FROM_EMAIL
 FIM_URL
+```
+
+* Heroku
+
+```
+heroku config:set FIM_SPARKPOST_API_KEY="<snip>"
+heroku config:set FIM_NOTIFICATION_TO_EMAIL="foo@bob.com"
+heroku config:set FIM_NOTIFICATION_FROM_EMAIL="foo@bob.com"
+heroku config:set FIM_URL="https://www.google.com/"
 ```
