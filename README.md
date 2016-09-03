@@ -1,12 +1,12 @@
 ## http(s) file integrity monitoring using the md5 hash provided by eTag HTTP header
 
-This is avery crude solution to satisfy PCI DSS requirement 10.5.5; used to monitor javascript sources on Amazon S3. It could do more and may one day but for now it doesn't
+This is avery crude solution to satisfy PCI DSS requirements for monitoring files; used to monitor javascript sources on Amazon S3. It could do more and may one day but for now it doesn't
 
-| PCI Guidance for Requirement no 10.5.5 “File integrity monitoring or change detection systems check for changes to critical files, and notify when such changes are noted. For file integrity monitoring purposes, an entity usually monitors files that don’t regularly change, but when changed indicate a possible compromise“.
+> PCI Guidance for Requirement no 10.5.5 “File integrity monitoring or change detection systems check for changes to critical files, and notify when such changes are noted. For file integrity monitoring purposes, an entity usually monitors files that don’t regularly change, but when changed indicate a possible compromise“.
 
-| Requirement no 11.5 states that “Deploy a change detection mechanism (for example, file integrity monitoring tools) to alert personnel to unauthorized modification of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly“.
+> Requirement no 11.5 states that “Deploy a change detection mechanism (for example, file integrity monitoring tools) to alert personnel to unauthorized modification of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly“.
 
-| PCI Guidance for Requirement no 11.5 “Change detection solutions such as file integrity monitoring (FIM) tools check for changes to critical files, and notify when such changes are detected. If not implemented properly and the output of the change detection solution monitored, a malicious individual could alter configuration file contents, operating system programs, or application executables. Unauthorized changes, if undetected, could render existing security controls ineffective and/or result in cardholder data being stolen with no perceptible impact to normal processing“.
+> PCI Guidance for Requirement no 11.5 “Change detection solutions such as file integrity monitoring (FIM) tools check for changes to critical files, and notify when such changes are detected. If not implemented properly and the output of the change detection solution monitored, a malicious individual could alter configuration file contents, operating system programs, or application executables. Unauthorized changes, if undetected, could render existing security controls ineffective and/or result in cardholder data being stolen with no perceptible impact to normal processing“.
 
 ### Build
 
@@ -14,7 +14,9 @@ This is avery crude solution to satisfy PCI DSS requirement 10.5.5; used to moni
 
 ### Required Environment Variables
 
+```
 FIM_SPARKPOST_API_KEY
 FIM_NOTIFICATION_TO_EMAIL
 FIM_NOTIFICATION_FROM_EMAIL
 FIM_URL
+```
