@@ -9,6 +9,21 @@ import (
 )
 
 func main() {
+
+	errc := make(chan error)
+
+	// HTTP ping to keep alive on Heroku
+	go func() {
+		http.HandleFunc("/ping", httpPing)
+		errc <- http.ListenAndServe(":8000", nil)
+	}()
+
+	// Begin our monitoring
+	monitor()
+
+}
+
+func monitor() {
 	baseURL := os.Getenv("FIM_URL")
 	for {
 		log.Printf("Requesting new hash for: [%s]", baseURL)
