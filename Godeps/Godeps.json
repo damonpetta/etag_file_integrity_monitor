@@ -1,6 +1,23 @@
 {
-	"ImportPath": ".",
+	"ImportPath": "github.com/damonpetta/etag_file_integrity_monitor",
 	"GoVersion": "go1.6",
 	"GodepVersion": "v74",
-	"Deps": []
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/SparkPost/gosparkpost",
+			"Rev": "44485d218c11330883cfa6b69e3bd33aee1770d4"
+		},
+		{
+			"ImportPath": "github.com/SparkPost/gosparkpost/events",
+			"Rev": "44485d218c11330883cfa6b69e3bd33aee1770d4"
+		},
+		{
+			"ImportPath": "github.com/certifi/gocertifi",
+			"Comment": "2016.08.31",
+			"Rev": "ec89d50f00d39494f5b3ec5cf2fe75c53467a937"
+		}
+	]
 }

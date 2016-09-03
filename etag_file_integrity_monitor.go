@@ -14,8 +14,10 @@ func main() {
 
 	// HTTP ping to keep alive on Heroku
 	go func() {
+		p := getPort()
+		log.Printf("Listening on %s...\n", p)
 		http.HandleFunc("/ping", httpPing)
-		errc <- http.ListenAndServe(":8000", nil)
+		errc <- http.ListenAndServe(p, nil)
 	}()
 
 	// Begin our monitoring
@@ -34,7 +36,7 @@ func monitor() {
 
 func comapreHash(baseHash string, baseURL string) {
 	for {
-		time.Sleep(6 * time.Second)
+		time.Sleep(60 * time.Second)
 		currentHash := getEtag(baseURL)
 		if baseHash != currentHash {
 			log.Printf("Hash mismatch [%s] != [%s]", currentHash, baseHash)
