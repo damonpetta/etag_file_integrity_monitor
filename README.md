@@ -31,3 +31,11 @@ heroku config:set FIM_NOTIFICATION_TO_EMAIL="foo@bob.com"
 heroku config:set FIM_NOTIFICATION_FROM_EMAIL="foo@bob.com"
 heroku config:set FIM_URL="https://www.google.com/"
 ```
+
+* Docker
+
+```
+docker build -t etag_monitor
+docker run -ti -e FIM_SPARKPOST_API_KEY=<snip> -e FIM_NOTIFICATION_TO_EMAIL=<email> -e FIM_NOTIFICATION_FROM_EMAIL=<email> -e FIM_URL=<url>
+```
+

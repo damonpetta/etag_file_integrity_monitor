@@ -12,13 +12,15 @@ func main() {
 
 	errc := make(chan error)
 
-	// HTTP ping to keep alive on Heroku
-	go func() {
-		p := getPort()
-		log.Printf("Listening on %s...\n", p)
-		http.HandleFunc("/ping", httpPing)
-		errc <- http.ListenAndServe(p, nil)
-	}()
+	// HTTP ping to keep alive on Heroku if env:PORT is set
+	if os.Getenv("PORT") != "" {
+		go func() {
+			p := getPort()
+			log.Printf("Listening on %s...\n", p)
+			http.HandleFunc("/ping", httpPing)
+			errc <- http.ListenAndServe(p, nil)
+		}()
+	}
 
 	// Begin our monitoring
 	monitor()
